@@ -22,6 +22,10 @@ internal class SearchController(
 
         model.addAttribute("searchQuery", searchResult.query ?: SearchQuery())
 
+        searchResult.data?.let {
+            model.addAttribute("results", it)
+        }
+
         return "index"
     }
 
